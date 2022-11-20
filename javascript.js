@@ -22,26 +22,26 @@ function statement (invoice, plays) {
     result += `You earned ${volumeCredits} credits\n`;
     return result;
 
-    function amountFor(perf, play) {
-        let thisAmount = 0;
+    function amountFor(aPerformance, play) {
+      let result = 0;
       switch (play.type) {
       case "tragedy":
-        thisAmount = 40000;
-        if (perf.audience > 30) {
-          thisAmount += 1000 * (perf.audience - 30);
+        result = 40000;
+        if (aPerformance.audience > 30) {
+          result += 1000 * (aPerformance.audience - 30);
         }
         break;
       case "comedy":
-        thisAmount = 30000;
-        if (perf.audience > 20) {
-          thisAmount += 10000 + 500 * (perf.audience - 20);
+        result = 30000;
+        if (aPerformance.audience > 20) {
+          result += 10000 + 500 * (aPerformance.audience - 20);
         }
-        thisAmount += 300 * perf.audience;
+        result += 300 * aPerformance.audience;
         break;
       default:
           throw new Error(`unknown type: ${play.type}`);
       }
-      return thisAmount;
+      return result;
     }
   }
 
@@ -51,4 +51,7 @@ first refactor the program to make it easy to add the feature, then add the feat
 
 Before you start refactoring, make suer you have a solid suite of tests.
 These tests must be self-checking.
+
+Refactoring changes the programs in small steps, so if you make a mistake,
+it is easy to find where the bug is.
 */
