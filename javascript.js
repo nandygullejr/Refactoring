@@ -6,7 +6,6 @@ function statement (invoice, plays) {
                           { style: "currency", currency: "USD",
                             minimumFractionDigits: 2 }).format;
     for (let perf of invoice.performances) {
-      let thisAmount = amountFor(perf);
   
       // add volume credits
       volumeCredits += Math.max(perf.audience - 30, 0);
@@ -14,8 +13,8 @@ function statement (invoice, plays) {
       if ("comedy" === playFor(perf).type) volumeCredits += Math.floor(perf.audience / 5);
   
       // print line for this order
-      result += `  ${playFor(perf).name}: ${format(thisAmount/100)} (${perf.audience} seats)\n`;
-      totalAmount += thisAmount;
+      result += `  ${playFor(perf).name}: ${format(amountFor(perf)/100)} (${perf.audience} seats)\n`;
+      totalAmount += amountFor(perf);
     }
     result += `Amount owed is ${format(totalAmount/100)}\n`;
     result += `You earned ${volumeCredits} credits\n`;
@@ -57,4 +56,7 @@ These tests must be self-checking.
 
 Refactoring changes the programs in small steps, so if you make a mistake,
 it is easy to find where the bug is.
+
+Any fool can write code that a computer can understand.
+Good programmers write code that humans can understand.
 */
