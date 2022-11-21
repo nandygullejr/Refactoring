@@ -50,6 +50,12 @@ function statement (invoice, plays) {
       if ("comedy" === playFor(aPerformance).type) result += Math.floor(perf.audience / 5);
       return result;
     }
+
+    function format(aNumber) {
+      return new Intl.NumberFormat("en-US",
+                          { style: "currency", currency: "USD",
+                            minimumFractionDigits: 2 }).format(aNumber);
+    }
   }
 
 /*
