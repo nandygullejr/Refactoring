@@ -12,12 +12,12 @@ function renderPlainText(data, plays) {
   result += `Amount owed is ${usd(data.totalAmount)}\n`;
   result += `You earned ${data.totalVolumeCredits} credits\n`;
   return result;
+}
 
-  function usd(aNumber) {
-    return new Intl.NumberFormat("en-US",
-                        { style: "currency", currency: "USD",
-                          minimumFractionDigits: 2 }).format(aNumber/100);
-  }
+function usd(aNumber) {
+  return new Intl.NumberFormat("en-US",
+                      { style: "currency", currency: "USD",
+                        minimumFractionDigits: 2 }).format(aNumber/100);
 }
 /*
 When you have to add a feature to a program but the code is not structured in a convenient way,
