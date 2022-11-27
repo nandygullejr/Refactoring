@@ -49,4 +49,12 @@ it is easy to find where the bug is.
 
 Any fool can write code that a computer can understand.
 Good programmers write code that humans can understand.
+
+Brevity is the soul of wit, but clarity is the soul of evolvable software.
+
+When programming, follow the camping rule:
+Always leave the code base healthier than when you found it.
+...
+Always leave the code base healthier than when you found it.
+It will never be perfect, but it should be better.
 */
