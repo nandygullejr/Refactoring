@@ -24,10 +24,7 @@ export default function createStatementData(invoice, plays) {
       throw new Error('subclass responsibility');
     }
     get volumeCredits() {
-      let result = 0;
-      result += Math.max(aPerformance.audience - 30, 0);
-      if ("comedy" === aPerformance.play.type) result += Math.floor(aPerformance.audience / 5);
-      return result;
+      return Math.max(this.performance.audience - 30, 0);
     }
   }
 
@@ -51,12 +48,7 @@ export default function createStatementData(invoice, plays) {
   }
   class ComedyCalculator extends PerformanceCalculator {
     get amount() {
-      let result = 30000;
-      if (this.performance.audience > 20) {
-        result += 10000 + 500 * (this.performance.audience - 20);
-      }
-      result += 300 * this.performance.audience;
-      return result;
+      return super.volumeCredits + Math.floor(this.performance.audience / 5);
     }
   }
   function playFor(aPerformance) {
