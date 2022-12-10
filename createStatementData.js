@@ -72,3 +72,6 @@ class ComedyCalculator extends PerformanceCalculator {
     return super.volumeCredits + Math.floor(this.performance.audience / 5);
   }
 }
+
+// The true test of good code is how easy it is to change it.
+// When you fel the need to write a coment, first try to refactor the code so that any comment become superfluous.
